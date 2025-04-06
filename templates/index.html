@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dijkstra - Calculadora de Ruta Más Corta</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <script src="https://unpkg.com/cytoscape/dist/cytoscape.min.js"></script>
+    <script src="/static/diagram.js"></script>
+    <script src="/static/shortestPath.js"></script>
+    <style>
+        /* Fondo con gradiente */
+        body {
+            background: linear-gradient(135deg, #56f337, #2cc3ff);
+            color: rgb(255, 251, 0);
+        }
+        /* Estilo del contenedor */
+        .container {
+            background: rgba(11, 74, 126, 0.7); /* Fondo semitransparente */
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Botones personalizados */
+        .btn-primary {
+            background: linear-gradient(135deg, #d014ff, #27ae60);
+            border: none;
+        }
+
+        .btn-success {
+            background: linear-gradient(135deg, #27ae60, #d014ff);
+            border: none;
+        }
+
+        .btn-danger {
+            background: linear-gradient(135deg, #e74c3c, #206dfc);
+            border: none;
+        }
+
+        .btn-info {
+            background: linear-gradient(135deg,  #e74c3c, #206dfc);
+            border: none;
+        }
+
+        /* Tabla estilizada */
+        .table-primary {
+            background: linear-gradient(135deg, #000000, #2980b9);
+            color: rgb(255, 14, 14);
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container py-5">
+        <h1 class="text-center mb-4">Algoritmo de Dijkstra - Calculadora de Ruta Más Corta</h1>
+
+        <form id="nodes-form" class="mb-4">
+            <div class="mb-3">
+                <label for="nodes" class="form-label">Número de nodos (representados como letras):</label>
+                <input type="number" id="nodes" name="nodes" class="form-control" required>
+            </div>
+            <div class="d-flex justify-content-center gap-2">
+                <button type="button" class="btn btn-primary" onclick="drawNodes()">Dibujar nodos iniciales</button>
+                <button type="button" class="btn btn-success" onclick="addNewNode()">Agregar nodo origen</button>
+            </div>
+        </form>
+
+        <table id="connections-table" class="table table-striped table-bordered">
+            <thead class="table-primary">
+                <tr>
+                    <th>Nodo origen</th>
+                    <th>Nodo destino</th>
+                    <th>Distancia</th>
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Filas dinámicas generadas aquí -->
+            </tbody>
+        </table>
+
+        <div class="d-flex justify-content-center gap-3 my-4">
+            <button type="button" class="btn btn-info" onclick="addConnections()">Agregar conexiones al grafo</button>
+            <button type="button" class="btn btn-danger" onclick="calculateShortestPath()">Calcular Ruta Más Corta</button>
+        </div>
+
+        <div id="cy" class="border p-3 bg-white" style="height: 400px;">
+            <!-- Espacio reservado para tu grafo -->
+            <p class="text-center text-muted">Aquí va tu grafo</p>
+        </div>
+        <center>
+            <h2>Raúl Ciriaco Castillo 3601<br>
+            Ing. Sistemas Computacionales</h2>
+        </center>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+</html>
