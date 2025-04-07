@@ -1,2 +1,3 @@
 Flask
 networkx
+gunicorn==20.1.0  # Sustituye por la versión que instalaste
